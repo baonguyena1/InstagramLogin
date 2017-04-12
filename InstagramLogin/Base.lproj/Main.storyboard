@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wJx-tj-KNw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InstagramLogin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-Ur-7YN">
+                                <rect key="frame" x="168.5" y="318" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="HbR-RP-V78" kind="show" id="XsM-Sn-bTH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OU5-Ur-7YN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dKj-41-CH7"/>
+                            <constraint firstItem="OU5-Ur-7YN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pxD-DV-EBQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tuk-Qp-75c"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.2" y="138.98050974512745"/>
+        </scene>
+        <!--Instagram-->
+        <scene sceneID="d5l-jx-PBZ">
+            <objects>
+                <viewController id="HbR-RP-V78" customClass="InstagramController" customModule="InstagramLogin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UcH-Uw-qc0"/>
+                        <viewControllerLayoutGuide type="bottom" id="edV-DC-DOm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C9q-Ty-JZi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-mM-Ln0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HbR-RP-V78" id="JfX-PH-nG6"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Du-mM-Ln0" firstAttribute="top" secondItem="UcH-Uw-qc0" secondAttribute="bottom" id="9HV-tO-BcY"/>
+                            <constraint firstItem="edV-DC-DOm" firstAttribute="top" secondItem="7Du-mM-Ln0" secondAttribute="bottom" id="dud-nT-tWC"/>
+                            <constraint firstAttribute="trailing" secondItem="7Du-mM-Ln0" secondAttribute="trailing" id="hUr-nH-in9"/>
+                            <constraint firstItem="7Du-mM-Ln0" firstAttribute="leading" secondItem="C9q-Ty-JZi" secondAttribute="leading" id="rWv-Xs-ZGu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Instagram" id="IRg-y8-mFO"/>
+                    <connections>
+                        <outlet property="webView" destination="7Du-mM-Ln0" id="DV7-DZ-UTQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bwb-qj-ZVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1887.2" y="138.98050974512745"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lHN-7n-1aZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wJx-tj-KNw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wYe-Ym-1sg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6dA-xM-hAV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pcF-Yk-v0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="139"/>
+        </scene>
+    </scenes>
+</document>
