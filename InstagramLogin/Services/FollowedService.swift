@@ -14,8 +14,8 @@ protocol Getable {
 }
 
 protocol Postable {
-    associatedtype S
-    func unfollow(with userId: String, parameters: [String: Any], completion: @escaping (Result<S>) -> ())
+    associatedtype P
+    func unfollow(with userId: String, parameters: [String: Any], completion: @escaping (Result<P>) -> ())
 }
 
 struct FollowedService: Getable {

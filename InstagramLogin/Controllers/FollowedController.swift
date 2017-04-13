@@ -55,9 +55,27 @@ class FollowedController: UITableViewController {
             self?.refreshControl?.endRefreshing()
         }
     }
+    
+    private func unfollowUser<S: Postable>(from service: S, for userId: String) where S.P == [String: Any] {
+//        SVProgressHUD.show()
+        service.unfollow(with: userId, parameters: ["action": "unfollow"]) { (result) in
+            switch result {
+            case .error(let error):
+                print(error)
+            case .success(let json):
+                print(json)
+            }
+//            SVProgressHUD.dismiss()
+        }
+    }
 
     @IBAction func unfollow(_ sender: UIBarButtonItem) {
-        
+        if followedViewModels.count <= 0 {
+            return
+        }
+        for followedViewModel in followedViewModels {
+            unfollowUser(from: service, for: followedViewModel.id)
+        }
     }
     // MARK: - Table view data source
 
