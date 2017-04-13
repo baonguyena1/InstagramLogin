@@ -176,8 +176,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="MGV-3e-RF6">
-                        <barButtonItem key="rightBarButtonItem" title="Unfollow All" id="mKE-gU-pAj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Unfollow All" id="mKE-gU-pAj">
+                            <connections>
+                                <action selector="unfollow:" destination="YCH-7M-eBV" id="f1L-rG-gfg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="unfollowButton" destination="mKE-gU-pAj" id="IgV-GT-Nlb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bt6-ys-kKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

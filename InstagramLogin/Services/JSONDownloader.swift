@@ -66,4 +66,40 @@ struct JSONDownloader {
         
         return task
     }
+    
+    func post(with url: URL,
+              parameters: [String: Any],
+              completionHandler completion: @escaping JSONTaskCompletionHandler) -> URLSessionDataTask {
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let jsonData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+        request.httpBody = jsonData
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.error(.requestFailed))
+                return
+            }
+            
+            if httpResponse.statusCode != 200 {
+                completion(.error(.responseUnsuccessful))
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! JSON
+                    DispatchQueue.main.async {
+                        completion(.success(json))
+                    }
+                } catch {
+                    completion(.error(.jsonConversionFailure))
+                }
+            } else {
+                completion(.error(.invalidData))
+            }
+        }
+        return task
+        
+    }
 }
