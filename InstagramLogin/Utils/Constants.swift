@@ -9,3 +9,7 @@
 import Foundation
 
 let ACCESS_TOKEN = "access_token"
+let USERNAME = "username"
+let PROFILE_PICTURE = "profile_picture"
+let FULL_NAME = "full_name"
+let ID = "id"

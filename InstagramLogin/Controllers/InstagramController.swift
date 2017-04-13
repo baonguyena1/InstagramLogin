@@ -19,7 +19,7 @@ class InstagramController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let instaAuthUrlString = "\(baseUrl)client_id=\(clientId)&redirect_uri=\(redirectUri)&response_type=token"
+        let instaAuthUrlString = "\(baseUrl)client_id=\(clientId)&redirect_uri=\(redirectUri)&response_type=token&scope=basic+follower_list+public_content+relationships"
         guard let url = NSURL(string: instaAuthUrlString) else {
             return
         }
@@ -37,6 +37,9 @@ class InstagramController: UIViewController, UIWebViewDelegate {
                 // Save user access token
                 UserDefaults.standard.set(access_token, forKey: ACCESS_TOKEN)
                 UserDefaults.standard.synchronize()
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.applicationDidOpenScreen(nil)
                 return false
             }
         }

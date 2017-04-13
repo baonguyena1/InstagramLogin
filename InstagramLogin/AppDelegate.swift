@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        applicationDidOpenScreen(nil)
         return true
     }
 
@@ -41,6 +41,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MARK: Handle main screen
+    func applicationDidOpenScreen(_ completion: (()->())?) {
+        if UserDefaults.standard.value(forKey: ACCESS_TOKEN) == nil {
+            // access_token is not set
+            let loginNavigation = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginNavVC")
+            window?.rootViewController = loginNavigation
+        } else {
+            let followerNavigation = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FollowerNavVC")
+            window?.rootViewController = followerNavigation
+            
+        }
+        if (completion != nil) {
+            completion!()
+        }
+    }
 
 }
 

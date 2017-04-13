@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "410B85370BC5540F047A710C2AEE66FBF5982C5A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C2EDD3FFE5677EE546CDF2071662D22CDBF746D5" : 9223372036854775807,
+    "410B85370BC5540F047A710C2AEE66FBF5982C5A" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EB8B16E5-D389-48E2-82E7-B681D6941C5E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C2EDD3FFE5677EE546CDF2071662D22CDBF746D5" : "",
+    "410B85370BC5540F047A710C2AEE66FBF5982C5A" : "InstagramLogin\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "InstagramLogin",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "InstagramLogin.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/baonguyena1\/InstagramLogin.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "410B85370BC5540F047A710C2AEE66FBF5982C5A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/baonguyena1\/RotateMatrix.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C2EDD3FFE5677EE546CDF2071662D22CDBF746D5"
+    }
+  ]
+}
