@@ -21,6 +21,7 @@ class FollowedController: UITableViewController {
     @IBOutlet weak var unfollowButton: UIBarButtonItem!
     
     private let service = FollowedService()
+    private let dispatchGroup = DispatchGroup()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +58,7 @@ class FollowedController: UITableViewController {
     }
     
     private func unfollowUser<S: Postable>(from service: S, for userId: String) where S.P == [String: Any] {
-//        SVProgressHUD.show()
+        dispatchGroup.enter()
         service.unfollow(with: userId, parameters: ["action": "unfollow"]) { (result) in
             switch result {
             case .error(let error):
@@ -65,7 +66,7 @@ class FollowedController: UITableViewController {
             case .success(let json):
                 print(json)
             }
-//            SVProgressHUD.dismiss()
+            self.dispatchGroup.leave()
         }
     }
 
@@ -73,8 +74,12 @@ class FollowedController: UITableViewController {
         if followedViewModels.count <= 0 {
             return
         }
+        SVProgressHUD.show()
         for followedViewModel in followedViewModels {
             unfollowUser(from: service, for: followedViewModel.id)
+        }
+        dispatchGroup.notify(queue: DispatchQueue.main) { 
+            SVProgressHUD.dismiss()
         }
     }
     // MARK: - Table view data source
